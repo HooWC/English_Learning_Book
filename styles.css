@@ -1,0 +1,686 @@
+/* 全局样式 */
+:root {
+    --primary-color: #e74c3c;
+    --primary-light: #fadbd8;
+    --primary-dark: #c0392b;
+    --secondary-color: #7f8c8d;
+    --accent-color: #f39c12;
+    --accent-dark: #d35400;
+    --hard-color: #c0392b;
+    --medium-color: #f39c12;
+    --easy-color: #3498db;
+    --light-bg: #f9f9f9;
+    --white: #ffffff;
+    --dark-bg: #2c3e50;
+    --dark-secondary: #34495e;
+    --transition-normal: all 0.3s ease-in-out;
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+    --border-radius: 0.5rem;
+    --font-heading: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    --font-body: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 颜色类覆盖 */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* 图标样式增强 */
+.fas {
+    display: inline-block;
+    transition: var(--transition-normal);
+}
+
+.fa-book-open {
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    font-size: 1.75rem;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    transform: translateY(2px);
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--light-bg);
+    background-image: linear-gradient(120deg, #f9f9f9 0%, #f0f0f0 100%);
+    background-attachment: fixed;
+    color: #333;
+    transition: var(--transition-normal);
+    scroll-behavior: smooth;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+    transition: var(--transition-normal);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* 容器样式 */
+.container {
+    max-width: 1200px;
+    position: relative;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* 标题样式 */
+.fs-2 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    background: linear-gradient(120deg, var(--primary-color), var(--primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+header {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding-bottom: 1.5rem !important;
+    margin-bottom: 2rem !important;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+    border-radius: 3px;
+}
+
+/* 卡片和表单样式 */
+.bg-light {
+    background-color: var(--white) !important;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+.bg-light:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+}
+
+.form-control {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: var(--transition-normal);
+}
+
+textarea.form-control {
+    min-height: 100px;
+    line-height: 1.6;
+}
+
+textarea.form-control:focus,
+input.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+label.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+/* 占位符样式 */
+::placeholder {
+    color: #6c757d;
+    opacity: 0.7;
+    transition: var(--transition-normal);
+}
+
+/* 难度指示器样式 */
+.difficulty-indicator {
+    font-size: 0.6rem;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+}
+
+.difficulty-badge {
+    font-weight: bold;
+    padding: 0.35rem 0.65rem;
+    border-radius: 2rem;
+    display: inline-block;
+    width: 4.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.difficulty-badge:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.difficulty-hard {
+    background-color: rgba(192, 57, 43, 0.1);
+    color: var(--hard-color);
+    border: 1px solid rgba(192, 57, 43, 0.2);
+}
+
+.difficulty-medium {
+    background-color: rgba(243, 156, 18, 0.1);
+    color: var(--medium-color);
+    border: 1px solid rgba(243, 156, 18, 0.2);
+}
+
+.difficulty-easy {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--easy-color);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+/* 表单选择样式 */
+.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0.15em;
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    transform: scale(1.1);
+}
+
+.form-check-input:checked[type="radio"] {
+    background-color: currentColor;
+    border-color: currentColor;
+}
+
+.form-check-label {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* 表格样式 */
+.table-responsive {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    max-height: 600px;
+    position: relative;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-weight: 600;
+    border-top: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table td {
+    vertical-align: middle;
+    padding: 0.75rem 0.5rem;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition-normal);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+    transform: translateX(3px);
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* 内容显示样式 */
+.english-content {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 500;
+    max-height: 80px;
+    overflow: auto;
+    padding-right: 5px;
+}
+
+.notes-content {
+    color: var(--secondary-color);
+    font-style: italic;
+    max-height: 60px;
+    overflow: auto;
+    padding-right: 5px;
+}
+
+/* 按钮样式 */
+.btn {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    letter-spacing: 0.03rem;
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.6s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+    border: none;
+}
+
+.btn-outline-danger {
+    border: 1px solid var(--hard-color);
+    color: var(--hard-color);
+}
+
+.btn-outline-danger:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--hard-color);
+}
+
+.btn-action {
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.25rem;
+    border-radius: 0.375rem;
+}
+
+.btn .fas {
+    transition: var(--transition-normal);
+}
+
+.btn:hover .fas {
+    transform: translateY(-1px);
+}
+
+/* 无数据状态样式 */
+#no-items-message {
+    animation: pulse 2s infinite;
+    padding: 3rem !important;
+}
+
+#no-items-message i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+/* 动画效果 */
+.table-row {
+    transition: var(--transition-normal);
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 分页控件样式 */
+.pagination {
+    margin-bottom: 0;
+}
+
+.pagination .page-item {
+    margin: 0 2px;
+}
+
+.pagination .page-item .page-link {
+    color: var(--primary-color);
+    background-color: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    font-weight: 500;
+    transition: var(--transition-normal);
+}
+
+.pagination .page-item.active .page-link {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+    border-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.pagination .page-item.disabled .page-link {
+    color: var(--secondary-color);
+    background-color: #f8f9fa;
+    border-color: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+.pagination-info {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+}
+
+.pagination-info span {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* 模态框样式 */
+.modal-content {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    border: none;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+}
+
+/* 页脚样式 */
+footer {
+    position: relative;
+    padding-top: 1.5rem !important;
+    margin-top: 2rem !important;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .difficulty-badge {
+        width: 3.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .english-content {
+        font-size: 1rem;
+        max-height: 60px;
+    }
+    
+    .pagination-info {
+        font-size: 0.75rem;
+    }
+    
+    .table th {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.3rem;
+    }
+    
+    .table td {
+        padding: 0.5rem 0.3rem;
+    }
+    
+    .notes-content {
+        max-height: 40px;
+    }
+    
+    .btn-action {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+    }
+
+    /* 移动设备表格优化 */
+    .table-responsive {
+        max-height: none;
+        overflow-x: auto;
+    }
+    
+    .table {
+        min-width: 550px;
+    }
+    
+    .english-content, .notes-content {
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    /* 移动设备上改进表格行间距和对比度 */
+    .table td, .table th {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .table tbody tr {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    body.dark-mode .table tbody tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* 暗黑模式支持 */
+body.dark-mode {
+    background-color: var(--dark-bg);
+    background-image: linear-gradient(120deg, #2c3e50 0%, #1a252f 100%);
+    color: #f8f9fa;
+}
+
+body.dark-mode .bg-light {
+    background-color: var(--dark-secondary) !important;
+}
+
+body.dark-mode .table {
+    color: #f8f9fa;
+}
+
+body.dark-mode .table th {
+    background-color: #2d3238;
+    color: #f8f9fa;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .table tbody tr:hover td,
+body.dark-mode .table tbody tr:hover .english-content,
+body.dark-mode .table tbody tr:hover .notes-content {
+    color: #ffc107; /* 金黄色 */
+    transition: var(--transition-normal);
+}
+
+body.dark-mode .table-light {
+    background-color: #495057;
+    color: #f8f9fa;
+}
+
+body.dark-mode .form-control {
+    background-color: #2b3035;
+    border-color: #495057;
+    color: #f8f9fa;
+}
+
+/* 暗黑模式下表单控件聚焦状态文本颜色 */
+body.dark-mode .form-control:focus {
+    color: #f8f9fa;
+    background-color: #2b3035;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* 暗黑模式下的占位符颜色 */
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #adb5bd;
+    opacity: 0.7;
+}
+
+body.dark-mode .text-muted {
+    color: #adb5bd !important;
+}
+
+body.dark-mode label.form-label {
+    color: #adb5bd;
+}
+
+body.dark-mode .pagination .page-link {
+    background-color: #343a40;
+    border-color: #495057;
+    color: #f8f9fa;
+}
+
+body.dark-mode .pagination .page-item.active .page-link {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+    border-color: var(--primary-color);
+}
+
+body.dark-mode .pagination .page-item .page-link:hover {
+    background-color: #495057;
+}
+
+body.dark-mode .pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #2b3035;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+    background: linear-gradient(to right, #343a40, #2b3035);
+}
+
+body.dark-mode .modal-content {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+/* 暗黑模式下通知样式 */
+body.dark-mode .notification-success {
+    background: #1e3a29;
+    color: #8fd9a8;
+}
+
+body.dark-mode .notification-info {
+    background: #1e3a3c;
+    color: #8fd0d9;
+}
+
+/* 表格样式增强 */
+.table th, .table td {
+    transition: var(--transition-normal);
+}
+
+.english-content, .notes-content {
+    transition: var(--transition-normal);
+}
+
+/* 确保暗黑模式下图标颜色也是红色 */
+body.dark-mode .text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* 当在标题附近时额外的样式调整 */
+header .fa-book-open {
+    margin-top: 0;
+} 
